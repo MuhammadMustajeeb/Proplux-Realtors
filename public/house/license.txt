@@ -1,0 +1,11 @@
+Model Information:
+* title:	House, Simple House model
+* source:	https://sketchfab.com/3d-models/house-simple-house-model-2b849ce0249942009f4ff8197563de3f
+* author:	threadripper (https://sketchfab.com/threadripper)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "House, Simple House model" (https://sketchfab.com/3d-models/house-simple-house-model-2b849ce0249942009f4ff8197563de3f) by threadripper (https://sketchfab.com/threadripper) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
