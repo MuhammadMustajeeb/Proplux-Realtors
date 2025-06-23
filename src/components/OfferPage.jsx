@@ -49,7 +49,7 @@ const OfferPage = () => (
         View Demo Site
       </a>
       <a
-        href="https://calendly.com/yourname/real-estate-demo"
+        href="https://calendly.com/mustajeeb/free-strategy-call"
         target="_blank"
         rel="noopener noreferrer"
         className="bg-white/10 border border-white px-6 py-3 rounded-full hover:bg-white hover:text-black transition-all"

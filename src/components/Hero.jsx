@@ -17,9 +17,8 @@ const Hero = () => (
           Book a Free Demo
         </button>
         <button className="border border-slate-300 px-6 py-3 rounded-lg text-slate-300 hover:border-white hover:text-white">
-          Explore Now
+          <a href="/offer" className="underline hover:text-emerald-300 transition">See Our Offer</a>
         </button>
-        <a href="/offer" className="text-emerald-400 underline hover:text-emerald-300 transition">See Our Offer</a>
       </div>
     </div>
   </section>
