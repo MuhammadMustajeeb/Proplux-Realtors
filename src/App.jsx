@@ -5,6 +5,7 @@ import Testimonials from './components/Testimonials';
 import CTA from './components/CTA';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
+import ChatWidget from './components/ChatWidget';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Offer />
       <Testimonials />
       <CTA />
+      <ChatWidget />
       <ContactForm />
       <Footer />
     </div>
