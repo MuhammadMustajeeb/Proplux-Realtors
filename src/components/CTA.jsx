@@ -9,7 +9,6 @@ const CTA = () => (
   Book a Free Call
 </button>
 
-<a href="/offer" className="text-emerald-400 underline hover:text-emerald-300 transition">View Offer Details</a>
 
 
   </section>
