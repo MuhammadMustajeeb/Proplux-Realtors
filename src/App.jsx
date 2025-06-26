@@ -6,17 +6,36 @@ import CTA from './components/CTA';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 import ChatWidget from './components/ChatWidget';
+import StickyFooterCTA from './components/StickyFooterCTA'
+import CaseStudy from './components/CaseStudy';
+import Navbar from './components/Navbar';
+import ScrollProgress from "./components/ScrollProgress";
+import Pricing from './components/Pricing';
+import MeetPropLuxVideo from './components/MeetPropluxVideo';
+import ValueCalculator from './components/ValueCalculator';
+import StickyCTA from './components/StickyCTA';
+import GuaranteeBadge from './components/GuaranteeBadge';
+
 
 function App() {
   return (
     <div className="bg-black text-white">
+      <ScrollProgress />
+      <Navbar />
       <Hero />
       <Features />
-      <Offer />
       <Testimonials />
+      <ValueCalculator />
+      <Offer />
+      <GuaranteeBadge />
+      <Pricing />
+      <MeetPropLuxVideo />
       <CTA />
+      <CaseStudy />
       <ChatWidget />
       <ContactForm />
+      {/* <StickyFooterCTA /> */}
+      <StickyCTA />
       <Footer />
     </div>
   );
