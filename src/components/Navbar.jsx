@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link as ScrollLink } from "react-scroll";
+import { Link as RouterLink } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const navLinks = [
+  // Define scroll sections (all except blog)
+  const scrollLinks = [
     { name: "Home", to: "hero" },
     { name: "Offer", to: "offer" },
     { name: "Contact", to: "cta" },
@@ -24,21 +26,32 @@ const Navbar = () => {
         </ScrollLink>
 
         {/* Desktop Nav */}
-        <ul className="hidden md:flex space-x-8">
-          {navLinks.map((link) => (
+        <ul className="hidden md:flex space-x-8 items-center">
+          {scrollLinks.map((link) => (
             <li key={link.name}>
               <ScrollLink
                 to={link.to}
                 smooth={true}
                 duration={600}
                 offset={-70}
-                className="relative group text-lg cursor-pointer"
+                spy={true}
+                activeClass="active-link"
+                className="relative group text-lg cursor-pointer transition-colors duration-300"
               >
                 {link.name}
                 <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-emerald-400 transition-all duration-300 group-hover:w-full"></span>
               </ScrollLink>
             </li>
           ))}
+          <li>
+            <RouterLink
+              to="/blog"
+              className="relative group text-lg cursor-pointer transition-colors duration-300"
+            >
+              Blog
+              <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-emerald-400 transition-all duration-300 group-hover:w-full"></span>
+            </RouterLink>
+          </li>
         </ul>
 
         {/* Mobile Toggle */}
@@ -59,7 +72,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <ul className="md:hidden flex flex-col space-y-4 mt-4 text-center">
-          {navLinks.map((link) => (
+          {scrollLinks.map((link) => (
             <li key={link.name}>
               <ScrollLink
                 to={link.to}
@@ -73,6 +86,15 @@ const Navbar = () => {
               </ScrollLink>
             </li>
           ))}
+          <li>
+            <RouterLink
+              to="/blog"
+              className="text-lg block py-2 hover:text-emerald-400"
+              onClick={() => setIsOpen(false)}
+            >
+              Blog
+            </RouterLink>
+          </li>
         </ul>
       )}
     </motion.nav>

@@ -21,7 +21,7 @@ const Hero = () => (
         transition={{ duration: 0.8, delay: 0.2 }}
         className="mt-6 text-slate-300 max-w-xl"
       >
-        We build modern, automated sites for luxury real estate agents — complete with smart chatbots and booking systems. Go live in 7 days.
+        Done-for-you 3D website, AI chatbot, and CRM — built for luxury real estate agents. Live in 7 days or it's free.
       </motion.p>
       <motion.div
         initial={{ opacity: 0, y: 20 }}
