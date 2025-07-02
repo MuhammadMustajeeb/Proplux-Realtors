@@ -9,18 +9,21 @@ const posts = [
     excerpt: "Discover the smartest tools for lead gen, automation, and client engagement in the luxury real estate world.",
     link: "/blog/ai-tools-for-realtors",
     image: aiToolsImg,
+    alt: "AI tools illustration",
   },
   {
     title: "Why Most Realtor Websites Don’t Convert (and How to Fix Yours)",
     excerpt: "No CTA? Bad design? Learn the exact tweaks to make your site generate leads 24/7.",
     link: "/blog/website-conversion-fixes",
     image: conversionImg,
+    alt: "Website conversion graphic",
   },
   {
     title: "7-Day Launch Plan for Real Estate Agents (No Tech Skills Needed)",
     excerpt: "Too busy to figure out tech? We’ll build and launch your AI-powered website in just 7 days.",
     link: "/blog/7-day-launch-plan",
     image: launchPlanImg,
+    alt: "Launch plan calendar",
   },
 ];
 
