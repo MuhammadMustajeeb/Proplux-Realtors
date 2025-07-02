@@ -15,6 +15,10 @@ import MeetPropLuxVideo from './components/MeetPropluxVideo';
 import ValueCalculator from './components/ValueCalculator';
 import StickyCTA from './components/StickyCTA';
 import GuaranteeBadge from './components/GuaranteeBadge';
+import BonusStack from './components/BonusStack';
+import CountdownTimer from './components/CountdownTimer';
+import ShareCTA from './components/ShareCTA';
+import ReferralBanner from './components/ReferralBanner';
 
 
 function App() {
@@ -23,19 +27,23 @@ function App() {
       <ScrollProgress />
       <Navbar />
       <Hero />
+      <ValueCalculator />
       <Features />
       <Testimonials />
-      <ValueCalculator />
+      <CaseStudy />
       <Offer />
+      <CountdownTimer />
+      <BonusStack />
       <GuaranteeBadge />
       <Pricing />
       <MeetPropLuxVideo />
       <CTA />
-      <CaseStudy />
+      <ShareCTA />
       <ChatWidget />
       <ContactForm />
       {/* <StickyFooterCTA /> */}
       <StickyCTA />
+      <ReferralBanner />
       <Footer />
     </div>
   );

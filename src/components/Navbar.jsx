@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link as ScrollLink } from "react-scroll";
-import { Link as RouterLink } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Define scroll sections (all except blog)
-  const scrollLinks = [
+  const navLinks = [
     { name: "Home", to: "hero" },
     { name: "Offer", to: "offer" },
     { name: "Contact", to: "cta" },
+    { name: "Blog", href: "blog" },
+    { name: "Visualizer", href: "/visualizer" }, // non-scroll link
   ];
 
   return (
@@ -27,38 +27,44 @@ const Navbar = () => {
 
         {/* Desktop Nav */}
         <ul className="hidden md:flex space-x-8 items-center">
-          {scrollLinks.map((link) => (
+          {navLinks.map((link) => (
             <li key={link.name}>
-              <ScrollLink
-                to={link.to}
-                smooth={true}
-                duration={600}
-                offset={-70}
-                spy={true}
-                activeClass="active-link"
-                className="relative group text-lg cursor-pointer transition-colors duration-300"
-              >
-                {link.name}
-                <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-emerald-400 transition-all duration-300 group-hover:w-full"></span>
-              </ScrollLink>
+              {link.to ? (
+                <ScrollLink
+                  to={link.to}
+                  smooth={true}
+                  duration={600}
+                  offset={-70}
+                  spy={true}
+                  activeClass="active-link"
+                  className="relative group text-lg cursor-pointer"
+                >
+                  {link.name}
+                  <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-emerald-400 transition-all duration-300 group-hover:w-full"></span>
+                </ScrollLink>
+              ) : (
+                <a
+                  href={link.href}
+                  className="relative group text-lg cursor-pointer transition-colors duration-300"
+                >
+                  {link.name}
+                  <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-emerald-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+              )}
             </li>
           ))}
-          <li>
-            <RouterLink
-              to="/blog"
-              className="relative group text-lg cursor-pointer transition-colors duration-300"
-            >
-              Blog
-              <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-emerald-400 transition-all duration-300 group-hover:w-full"></span>
-            </RouterLink>
-          </li>
         </ul>
 
-        {/* Mobile Toggle */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden focus:outline-none"
+        {/* Try Visualizer CTA (desktop only) */}
+        <a
+          href="/visualizer"
+          className="hidden md:inline-block bg-emerald-500 text-black font-semibold px-5 py-2 rounded-lg hover:bg-emerald-600 ml-6 transition"
         >
+          Try Visualizer
+        </a>
+
+        {/* Mobile Toggle */}
+        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden focus:outline-none">
           <svg className="w-6 h-6" fill="none" stroke="currentColor">
             {isOpen ? (
               <path d="M6 18L18 6M6 6l12 12" strokeWidth={2} strokeLinecap="round" />
@@ -72,28 +78,39 @@ const Navbar = () => {
       {/* Mobile Menu */}
       {isOpen && (
         <ul className="md:hidden flex flex-col space-y-4 mt-4 text-center">
-          {scrollLinks.map((link) => (
+          {navLinks.map((link) => (
             <li key={link.name}>
-              <ScrollLink
-                to={link.to}
-                smooth={true}
-                duration={600}
-                offset={-60}
-                className="text-lg block py-2 hover:text-emerald-400 cursor-pointer"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </ScrollLink>
+              {link.to ? (
+                <ScrollLink
+                  to={link.to}
+                  smooth={true}
+                  duration={600}
+                  offset={-60}
+                  className="text-lg block py-2 hover:text-emerald-400 cursor-pointer"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </ScrollLink>
+              ) : (
+                <a
+                  href={link.href}
+                  className="text-lg block py-2 hover:text-emerald-400 cursor-pointer"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </a>
+              )}
             </li>
           ))}
+
+          {/* CTA Button for Mobile */}
           <li>
-            <RouterLink
-              to="/blog"
-              className="text-lg block py-2 hover:text-emerald-400"
-              onClick={() => setIsOpen(false)}
+            <a
+              href="/visualizer"
+              className="bg-emerald-500 text-black font-semibold px-5 py-2 rounded-lg hover:bg-emerald-600 inline-block transition"
             >
-              Blog
-            </RouterLink>
+              Try Visualizer
+            </a>
           </li>
         </ul>
       )}
