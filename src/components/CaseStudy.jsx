@@ -1,4 +1,4 @@
-import beforeAfterImg from '../assets/before-after.jpg';
+import beforeAfterImg from '../assets/before-after.webp';
 
 const CaseStudy = () => (
     <section className="bg-white py-20 px-6 text-gray-900 text-center">

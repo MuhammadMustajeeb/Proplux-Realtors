@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import aiToolsImg from "../../assets/blog/ai-tools.jpg";
-import conversionImg from "../../assets/blog/conversion.jpg";
-import launchPlanImg from "../../assets/blog/launch-plan.jpg";
+import aiToolsImg from "../../assets/blog/ai-tools.webp";
+import conversionImg from "../../assets/blog/conversion.webp";
+import launchPlanImg from "../../assets/blog/launch-plan.webp";
 
 const posts = [
   {

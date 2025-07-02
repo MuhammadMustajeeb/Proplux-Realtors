@@ -1,4 +1,4 @@
-import videoThumb from '../assets/video-thumb.png';
+import videoThumb from '../assets/video-thumb.webp';
 
 
 const MeetPropLuxVideo = () => (

@@ -58,7 +58,7 @@ const ChatWidgetDrawer = () => {
             {/* Header */}
             <div className="flex items-center gap-4 px-4 pt-4 pb-2 bg-slate-800 border-b border-slate-700">
               <img
-                src="/ai-avatar.png" // Place this in your /public folder
+                src="/ai-avatar.webp" // Place this in your /public folder
                 alt="AI Assistant"
                 className="w-10 h-10 rounded-full"
               />

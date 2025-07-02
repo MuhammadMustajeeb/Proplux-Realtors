@@ -18,11 +18,13 @@ import BonusStack from './components/BonusStack';
 import CountdownTimer from './components/CountdownTimer';
 import ShareCTA from './components/ShareCTA';
 import FloatingChatDrawer from './components/FloatingChatDrawer';
+import SEOHelmet from './components/SEOHelmet'; 
 
 
 function App() {
   return (
     <div className="bg-black text-white">
+      <SEOHelmet />
       <ScrollProgress />
       <Navbar />
       <Hero />
