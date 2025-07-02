@@ -5,7 +5,6 @@ import Testimonials from './components/Testimonials';
 import CTA from './components/CTA';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
-import ChatWidget from './components/ChatWidget';
 import StickyFooterCTA from './components/StickyFooterCTA'
 import CaseStudy from './components/CaseStudy';
 import Navbar from './components/Navbar';
@@ -18,7 +17,7 @@ import GuaranteeBadge from './components/GuaranteeBadge';
 import BonusStack from './components/BonusStack';
 import CountdownTimer from './components/CountdownTimer';
 import ShareCTA from './components/ShareCTA';
-import ReferralBanner from './components/ReferralBanner';
+import FloatingChatDrawer from './components/FloatingChatDrawer';
 
 
 function App() {
@@ -39,12 +38,12 @@ function App() {
       <MeetPropLuxVideo />
       <CTA />
       <ShareCTA />
-      <ChatWidget />
       <ContactForm />
       {/* <StickyFooterCTA /> */}
       <StickyCTA />
-      <ReferralBanner />
+      <FloatingChatDrawer />
       <Footer />
+
     </div>
   );
 }
