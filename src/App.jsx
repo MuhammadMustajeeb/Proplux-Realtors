@@ -5,20 +5,22 @@ import Testimonials from './components/Testimonials';
 import CTA from './components/CTA';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
-import StickyFooterCTA from './components/StickyFooterCTA'
-import CaseStudy from './components/CaseStudy';
 import Navbar from './components/Navbar';
 import ScrollProgress from "./components/ScrollProgress";
 import Pricing from './components/Pricing';
-import MeetPropLuxVideo from './components/MeetPropluxVideo';
-import ValueCalculator from './components/ValueCalculator';
 import StickyCTA from './components/StickyCTA';
 import GuaranteeBadge from './components/GuaranteeBadge';
 import BonusStack from './components/BonusStack';
 import CountdownTimer from './components/CountdownTimer';
 import ShareCTA from './components/ShareCTA';
-import FloatingChatDrawer from './components/FloatingChatDrawer';
 import SEOHelmet from './components/SEOHelmet'; 
+
+import { Suspense, lazy } from 'react';
+
+const ValueCalculator = lazy(() => import('./components/ValueCalculator'));
+const MeetPropLuxVideo = lazy(() => import('./components/MeetPropluxVideo'));
+const CaseStudy = lazy(() => import('./components/CaseStudy'));
+const FloatingChatDrawer = lazy(() => import('./components/FloatingChatDrawer'));
 
 
 function App() {
@@ -28,22 +30,37 @@ function App() {
       <ScrollProgress />
       <Navbar />
       <Hero />
-      <ValueCalculator />
       <Features />
       <Testimonials />
-      <CaseStudy />
+
+      <Suspense fallback={null}>
+        <ValueCalculator />
+      </Suspense>
+
       <Offer />
       <CountdownTimer />
       <BonusStack />
       <GuaranteeBadge />
       <Pricing />
-      <MeetPropLuxVideo />
+
+      <Suspense fallback={null}>
+        <MeetPropLuxVideo />
+      </Suspense>
+
       <CTA />
+
+      <Suspense fallback={null}>
+        <CaseStudy />
+      </Suspense>
+
+      <Suspense fallback={null}>
+        <FloatingChatDrawer />
+      </Suspense>
+
+
       <ShareCTA />
       <ContactForm />
-      {/* <StickyFooterCTA /> */}
       <StickyCTA />
-      <FloatingChatDrawer />
       <Footer />
 
     </div>
