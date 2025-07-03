@@ -10,6 +10,7 @@ const posts = [
     link: "/blog/ai-tools-for-realtors",
     image: aiToolsImg,
     alt: "AI tools illustration",
+    loading: "lazy",
   },
   {
     title: "Why Most Realtor Websites Don’t Convert (and How to Fix Yours)",
@@ -17,6 +18,7 @@ const posts = [
     link: "/blog/website-conversion-fixes",
     image: conversionImg,
     alt: "Website conversion graphic",
+    loading: "lazy",
   },
   {
     title: "7-Day Launch Plan for Real Estate Agents (No Tech Skills Needed)",
@@ -24,6 +26,7 @@ const posts = [
     link: "/blog/7-day-launch-plan",
     image: launchPlanImg,
     alt: "Launch plan calendar",
+    loading: "lazy",
   },
 ];
 

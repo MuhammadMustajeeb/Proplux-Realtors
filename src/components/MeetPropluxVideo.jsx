@@ -14,6 +14,7 @@ const MeetPropLuxVideo = () => (
                 src={videoThumb}
                 alt="PropLux Video Thumbnail"
                 className="w-full h-full object-cover"
+                loading="lazy"
             />
             <div className="absolute inset-0 bg-black/50 flex items-center justify-center group-hover:bg-black/60 transition">
                 <a

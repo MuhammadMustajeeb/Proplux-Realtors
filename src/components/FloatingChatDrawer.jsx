@@ -58,17 +58,18 @@ const ChatWidgetDrawer = () => {
             {/* Header */}
             <div className="flex items-center gap-4 px-4 pt-4 pb-2 bg-slate-800 border-b border-slate-700">
               <img
-                src="/ai-avatar.webp" // Place this in your /public folder
-                alt="AI Assistant"
-                className="w-10 h-10 rounded-full"
-              />
-              <div>
-                <p className="text-white font-semibold text-sm">PropLux AI</p>
-                <p className="text-slate-400 text-xs">Your 24/7 Real Estate Assistant</p>
-              </div>
-            </div>
+                 // Place this in your /public folder
+                        alt="AI Assistant"
+                        className="w-10 h-10 rounded-full"
+                        loading="lazy"
+                        />
+                        <div>
+                        <p className="text-white font-semibold text-sm">PropLux AI</p>
+                        <p className="text-slate-400 text-xs">Your 24/7 Real Estate Assistant</p>
+                        </div>
+                      </div>
 
-            {/* Welcome Message */}
+                      {/* Welcome Message */}
             <div className="px-4 pb-2 pt-1 text-white text-sm bg-slate-800">
               👋 How can I help you today?
             </div>
