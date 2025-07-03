@@ -61,6 +61,7 @@ const ChatWidgetDrawer = () => {
                  // Place this in your /public folder
                         alt="AI Assistant"
                         className="w-10 h-10 rounded-full"
+                        src="/ai-avatar.webp"
                         loading="lazy"
                         />
                         <div>
