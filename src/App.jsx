@@ -43,9 +43,9 @@ function App() {
       <GuaranteeBadge />
       <Pricing />
 
-      <Suspense fallback={null}>
+      {/* <Suspense fallback={null}>
         <MeetPropLuxVideo />
-      </Suspense>
+      </Suspense> */}
 
       <CTA />
 
