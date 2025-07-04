@@ -17,7 +17,7 @@ const CTA = () => (
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       onClick={() => window.open('https://calendly.com/mustajeeb/free-strategy-call', '_blank')}
-      className="bg-black text-white px-8 py-4 rounded-full hover:opacity-80"
+      className="bg-emerald-500 px-8 py-4 rounded-full text-black text-lg font-semibold hover:bg-emerald-600"
     >
       Book a Free Call
     </motion.button>

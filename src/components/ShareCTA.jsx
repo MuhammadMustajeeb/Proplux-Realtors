@@ -11,7 +11,7 @@ const ShareCTA = () => {
           href={`https://twitter.com/intent/tweet?url=${shareLink}&text=${message}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-blue-500 px-6 py-3 rounded-lg text-white hover:bg-blue-600"
+          className="bg-emerald-500 px-6 py-3 rounded-lg text-black font-semibold hover:bg-emerald-600 shadow-xl"
         >
           Share on Twitter
         </a>
@@ -19,7 +19,7 @@ const ShareCTA = () => {
           href={`https://www.facebook.com/sharer/sharer.php?u=${shareLink}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-blue-700 px-6 py-3 rounded-lg text-white hover:bg-blue-800"
+          className="bg-emerald-500 px-6 py-3 rounded-lg text-black font-semibold hover:bg-emerald-600 shadow-xl"
         >
           Share on Facebook
         </a>

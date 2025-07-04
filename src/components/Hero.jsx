@@ -1,31 +1,35 @@
-import { useEffect, useState, lazy, Suspense } from "react";
-
-// Lazy load the 3D scene only on desktop
-const Scene = lazy(() => import("./Scene"));
+import { useEffect, useState } from "react";
 
 const Hero = () => {
+  const [offsetY, setOffsetY] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     setIsMobile(window.innerWidth < 768);
+
+    const handleScroll = () => {
+      setOffsetY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <section className="relative h-screen bg-black overflow-hidden">
-      <div className="absolute inset-0 z-0 w-full h-full">
-        {isMobile ? (
-          <img
-            src="/hero-luxury.webp"
-            alt="Luxury Mobile Banner"
-            className="w-full h-full object-cover"
-          />
-        ) : (
-          <Suspense fallback={<div className="text-white text-center pt-20">Loading 3D Scene...</div>}>
-            <Scene />
-          </Suspense>
-        )}
-      </div>
+    <section className="relative h-screen overflow-hidden bg-black">
+      {/* Scroll-Parallax Background */}
+      <div
+        className="absolute inset-0 w-full h-full bg-center bg-cover transition-transform duration-200 will-change-transform"
+        style={{
+          backgroundImage: `url(${isMobile ? "/hero-luxury.webp" : "/hero-luxury.webp"})`,
+          transform: `translateY(${isMobile ? 0 : offsetY * 0.3}px)`,
+        }}
+      />
 
+      {/* Overlay (optional for better text contrast) */}
+      <div className="absolute inset-0 bg-black/60 z-[1]" />
+
+      {/* Hero Content */}
       <div className="relative z-10 flex flex-col justify-center items-center text-center h-full px-6">
         <h1 className="text-4xl md:text-6xl font-bold text-white drop-shadow-lg">
           Get 5–10 More Leads/Week with{" "}

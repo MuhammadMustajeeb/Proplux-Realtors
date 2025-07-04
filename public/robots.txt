@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://proplux-realtors.vercel.app/sitemap.xml
