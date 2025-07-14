@@ -21,7 +21,9 @@ const Hero = () => {
       <div
         className="absolute inset-0 w-full h-full bg-center bg-cover transition-transform duration-200 will-change-transform"
         style={{
-          backgroundImage: `url(${isMobile ? "/hero-luxury.webp" : "/hero-luxury.webp"})`,
+          backgroundImage: `url(${
+            isMobile ? "/hero-luxury.webp" : "/hero-luxury.webp"
+          })`,
           transform: `translateY(${isMobile ? 0 : offsetY * 0.3}px)`,
         }}
       />
@@ -36,16 +38,22 @@ const Hero = () => {
           <span className="text-emerald-400">AI-Powered Realtor Websites</span>
         </h1>
         <p className="mt-6 text-slate-300 max-w-xl">
-          We build modern, automated sites for luxury real estate agents — complete with smart chatbots and booking systems. Go live in 7 days.
+          We build modern, automated sites for luxury real estate agents —
+          complete with smart chatbots and booking systems. Go live in 7 days.
         </p>
-        <div className="mt-8 space-x-4">
-          <a href="https://calendly.com/mustajeeb/free-strategy-call" target="_blank" rel="noreferrer">
-            <button className="bg-emerald-500 px-6 py-3 rounded-lg text-black font-semibold hover:bg-emerald-600 shadow-xl">
+        <div className="mt-8 flex flex-col md:flex-row items-center gap-4 w-full max-w-md mx-auto">
+          <a
+            href="https://calendly.com/mustajeeb/free-strategy-call"
+            target="_blank"
+            rel="noreferrer"
+            className="w-full md:w-auto"
+          >
+            <button className="w-full md:w-auto bg-emerald-500 px-6 py-3 rounded-lg text-black font-semibold hover:bg-emerald-600 shadow-xl">
               Book a Free Demo
             </button>
           </a>
-          <a href="#offer">
-            <button className="border border-slate-300 px-6 py-3 rounded-lg text-slate-300 hover:border-white hover:text-white">
+          <a href="#offer" className="w-full md:w-auto">
+            <button className="w-full md:w-auto border border-slate-300 px-6 py-3 rounded-lg text-slate-300 hover:border-white hover:text-white">
               See Our Offer
             </button>
           </a>
