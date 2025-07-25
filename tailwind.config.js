@@ -10,6 +10,7 @@ export default {
   fontFamily: {
   sans: ['Inter', 'sans-serif'],
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/typography')],
+
 }
 

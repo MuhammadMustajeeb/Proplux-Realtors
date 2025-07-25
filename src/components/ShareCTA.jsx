@@ -6,11 +6,12 @@ const ShareCTA = () => {
   const fullMessage = `${message}%20${shareLink}`;
 
   return (
-    <section className="bg-slate-950 py-16 px-6 text-white text-center">
-      <h3 className="text-2xl md:text-3xl font-bold mb-4">
+    <section className="bg-gradient-to-b from-black via-zinc-900 to-black py-20 px-4 text-white"
+>
+      <h3 className="text-2xl md:text-3xl font-bold mb-4 text-center">
         Know a Realtor Who Needs This?
       </h3>
-      <p className="mb-8 text-slate-400 max-w-xl mx-auto text-sm md:text-base">
+      <p className="mb-8 text-slate-400 max-w-xl mx-auto text-sm md:text-base text-center">
         Help a friend grow their business. Share PropLux with one click 👇
       </p>
 

@@ -14,6 +14,7 @@ import BonusStack from './components/BonusStack';
 import CountdownTimer from './components/CountdownTimer';
 import ShareCTA from './components/ShareCTA';
 import SEOHelmet from './components/SEOHelmet'; 
+import HomeBlogList from './components/HomeBlogList';
 
 import { Suspense, lazy } from 'react';
 
@@ -32,6 +33,7 @@ function App() {
       <Hero />
       <Features />
       <Testimonials />
+      <HomeBlogList />
 
       <Suspense fallback={null}>
         <ValueCalculator />

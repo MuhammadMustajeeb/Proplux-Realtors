@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const CountdownTimer = () => {
-  const [timeLeft, setTimeLeft] = useState(86400); // 24 hours in seconds
+  const [timeLeft, setTimeLeft] = useState(86400); // 24 hours
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -21,17 +21,32 @@ const CountdownTimer = () => {
   const percent = ((86400 - timeLeft) / 86400) * 100;
 
   return (
-    <section className="bg-slate-900 py-10 px-6 text-center text-white">
-      <h3 className="text-xl font-semibold text-emerald-400 mb-2">⏳ Limited Time Launch Offer Ends In:</h3>
-      <p className="text-3xl font-bold mb-4">{formatTime(timeLeft)}</p>
-      <div className="bg-slate-800 h-2 w-full max-w-xl mx-auto rounded-full overflow-hidden">
-        <motion.div
-          className="bg-emerald-400 h-full"
-          initial={{ width: 0 }}
-          animate={{ width: `${percent}%` }}
-          transition={{ duration: 1 }}
-        />
-      </div>
+    <section className="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 py-20 px-6 text-white">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="text-center max-w-3xl mx-auto"
+      >
+        <h2 className="text-4xl font-bold mb-4 text-emerald-400">
+          ⏳ Limited-Time Founders Offer
+        </h2>
+        <p className="text-lg text-slate-300 mb-6">
+          Secure your custom AI-powered real estate website <span className="text-white font-semibold">within 24 hours</span> — this exclusive launch deal vanishes soon.
+        </p>
+        <div className="text-5xl font-extrabold text-white mb-6">
+          {formatTime(timeLeft)}
+        </div>
+
+        <div className="bg-slate-800 h-3 w-full max-w-xl mx-auto rounded-full overflow-hidden">
+          <motion.div
+            className="bg-emerald-500 h-full"
+            initial={{ width: 0 }}
+            animate={{ width: `${percent}%` }}
+            transition={{ ease: "linear", duration: 1 }}
+          />
+        </div>
+      </motion.div>
     </section>
   );
 };

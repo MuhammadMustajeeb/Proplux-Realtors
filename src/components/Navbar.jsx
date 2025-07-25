@@ -1,71 +1,72 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link as ScrollLink } from "react-scroll";
+import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const navLinks = [
+  { name: "Home", to: "hero" },
+  { name: "Offer", to: "offer" },
+  { name: "Contact", to: "cta" },
+  { name: "Blog", href: "/blog" },
+  { name: "Visualizer", href: "/visualizer" },
+];
+
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-
-  const navLinks = [
-    { name: "Home", to: "hero" },
-    { name: "Offer", to: "offer" },
-    { name: "Contact", to: "cta" },
-    { name: "Blog", href: "blog" },
-    { name: "Visualizer", href: "/visualizer" }, // non-scroll link
-  ];
 
   return (
     <motion.nav
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="sticky top-0 z-50 bg-black/80 backdrop-blur-sm text-white py-4 px-6 md:px-10 shadow-md"
+      transition={{ duration: 0.5 }}
+      className="sticky top-0 z-50 bg-black/80 backdrop-blur-md text-white px-6 md:px-10 py-4 shadow-md"
     >
-      <div className="flex justify-between items-center max-w-7xl mx-auto">
-        <ScrollLink to="hero" smooth={true} duration={600} className="cursor-pointer">
+      <div className="flex items-center justify-between max-w-7xl mx-auto">
+        <ScrollLink to="hero" smooth duration={600} className="cursor-pointer">
           <h1 className="text-2xl font-bold text-emerald-400">PropLux</h1>
         </ScrollLink>
 
-        {/* Desktop Nav */}
-        <ul className="hidden md:flex space-x-8 items-center">
+        {/* Desktop Navigation */}
+        <ul className="hidden md:flex items-center space-x-8">
           {navLinks.map((link) => (
             <li key={link.name}>
               {link.to ? (
                 <ScrollLink
                   to={link.to}
-                  smooth={true}
+                  smooth
                   duration={600}
                   offset={-70}
-                  spy={true}
-                  activeClass="active-link"
-                  className="relative group text-lg cursor-pointer"
+                  spy
+                  activeClass="text-emerald-400"
+                  className="relative group text-lg cursor-pointer font-medium transition-all"
                 >
                   {link.name}
-                  <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-emerald-400 transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-emerald-400 transition-all duration-300 group-hover:w-full"></span>
                 </ScrollLink>
               ) : (
                 <a
                   href={link.href}
-                  className="relative group text-lg cursor-pointer transition-colors duration-300"
+                  className="relative group text-lg cursor-pointer font-medium transition-all hover:text-emerald-400"
                 >
                   {link.name}
-                  <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-emerald-400 transition-all duration-300 group-hover:w-full"></span>
+                  <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-emerald-400 transition-all duration-300 group-hover:w-full"></span>
                 </a>
               )}
             </li>
           ))}
         </ul>
 
-        {/* Try Visualizer CTA (desktop only) */}
+        {/* CTA (desktop) */}
         <a
           href="/visualizer"
-          className="hidden md:inline-block bg-emerald-500 text-black font-semibold px-5 py-2 rounded-lg hover:bg-emerald-600 ml-6 transition"
+          className="hidden md:inline-block bg-emerald-500 text-black font-semibold px-5 py-2 rounded-lg hover:bg-emerald-600 transition duration-300"
         >
           Try Visualizer
         </a>
 
-        {/* Mobile Toggle */}
+        {/* Hamburger Button */}
         <button onClick={() => setIsOpen(!isOpen)} className="md:hidden focus:outline-none">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor">
+          <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor">
             {isOpen ? (
               <path d="M6 18L18 6M6 6l12 12" strokeWidth={2} strokeLinecap="round" />
             ) : (
@@ -75,47 +76,52 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <ul className="md:hidden flex flex-col space-y-4 mt-4 text-center">
-          {navLinks.map((link) => (
-            <li key={link.name}>
-              {link.to ? (
-                <ScrollLink
-                  to={link.to}
-                  smooth={true}
-                  duration={600}
-                  offset={-60}
-                  className="text-lg block py-2 hover:text-emerald-400 cursor-pointer"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.name}
-                </ScrollLink>
-              ) : (
-                <a
-                  href={link.href}
-                  className="text-lg block py-2 hover:text-emerald-400 cursor-pointer"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {link.name}
-                </a>
-              )}
-            </li>
-          ))}
+      {/* Mobile Dropdown */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.ul
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden mt-4 text-center bg-black/90 backdrop-blur-md rounded-lg shadow-lg py-4 space-y-3"
+          >
+            {navLinks.map((link) => (
+              <li key={link.name}>
+                {link.to ? (
+                  <ScrollLink
+                    to={link.to}
+                    smooth
+                    duration={600}
+                    offset={-60}
+                    className="text-lg block py-2 hover:text-emerald-400 transition"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.name}
+                  </ScrollLink>
+                ) : (
+                  <a
+                    href={link.href}
+                    className="text-lg block py-2 hover:text-emerald-400 transition"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {link.name}
+                  </a>
+                )}
+              </li>
+            ))}
 
-          {/* CTA Button for Mobile */}
-          <li>
-            <a
-              href="/visualizer"
-              className="bg-emerald-500 text-black font-semibold px-5 py-2 rounded-lg hover:bg-emerald-600 inline-block transition"
-            >
-              Try Visualizer
-            </a>
-          </li>
-        </ul>
-      )}
+            <li>
+              <a
+                href="/visualizer"
+                className="bg-emerald-500 text-black font-semibold px-5 py-2 rounded-lg hover:bg-emerald-600 inline-block transition"
+              >
+                Try Visualizer
+              </a>
+            </li>
+          </motion.ul>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
-};
-
-export default Navbar;
+}

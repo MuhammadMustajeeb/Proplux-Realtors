@@ -1,4 +1,3 @@
-// components/Pricing.jsx
 "use client";
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
@@ -39,62 +38,77 @@ const plans = [
 
 const Pricing = () => {
   return (
-    <section id="pricing" className="bg-black text-white py-24 px-6">
-      <motion.div
-        initial={{ opacity: 0, y: 60 }}
+    <section
+      id="pricing"
+      className="bg-slate-950 py-20 px-6 text-white"
+    >
+      <motion.h2
+        initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
+        transition={{ duration: 0.8 }}
         viewport={{ once: true }}
-        className="max-w-6xl mx-auto text-center"
+        className="text-4xl font-bold text-center mb-6"
       >
-        <h2 className="text-4xl font-bold mb-4">Pricing Plans</h2>
-        <p className="text-slate-400 mb-16">
-          Get started with a tailored solution based on your goals.
-        </p>
+        Pricing Plans
+      </motion.h2>
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.1 }}
+        viewport={{ once: true }}
+        className="text-slate-400 text-center max-w-xl mx-auto mb-16"
+      >
+        Get started with a tailored solution based on your goals.
+      </motion.p>
 
-        <div className="grid md:grid-cols-3 gap-10">
-          {plans.map((plan, idx) => (
-            <motion.div
-              key={idx}
-              whileHover={{ scale: 1.03 }}
-              className={`rounded-xl border border-white/10 p-8 text-left shadow-lg bg-slate-950 ${
+      <div className="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto">
+        {plans.map((plan, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: idx * 0.2 }}
+            whileHover={{ scale: 1.03 }}
+            viewport={{ once: true }}
+            className={`rounded-xl p-8 text-center shadow-lg border transition-all ${
+              plan.highlight
+                ? "bg-slate-900 border-emerald-500 shadow-emerald-400/20"
+                : "bg-slate-900 border-white/10"
+            }`}
+          >
+            <h3 className="text-xl font-semibold text-emerald-400 mb-1">
+              {plan.name}
+            </h3>
+            <p className="text-3xl font-bold mb-3">{plan.price}</p>
+            <p className="text-slate-400 mb-6">{plan.desc}</p>
+
+            <ul className="space-y-3 text-left mb-8">
+              {plan.features.map((f, i) => (
+                <li key={i} className="flex items-start gap-2">
+                  <CheckCircle className="w-5 h-5 text-emerald-400 mt-1" />
+                  <span className="text-slate-300">{f}</span>
+                </li>
+              ))}
+            </ul>
+
+            <button
+              onClick={() =>
+                window.open(
+                  "https://calendly.com/mustajeeb/free-strategy-call",
+                  "_blank"
+                )
+              }
+              className={`w-full px-6 py-3 rounded-lg font-semibold transition ${
                 plan.highlight
-                  ? "border-emerald-500 shadow-emerald-500/30"
-                  : ""
+                  ? "bg-emerald-500 text-black hover:bg-emerald-600"
+                  : "border border-slate-300 text-white hover:border-white hover:bg-slate-800"
               }`}
             >
-              <h3 className="text-2xl font-semibold mb-2 text-emerald-400">
-                {plan.name}
-              </h3>
-              <p className="text-3xl font-bold mb-2">{plan.price}</p>
-              <p className="text-slate-400 mb-6">{plan.desc}</p>
-              <ul className="space-y-3 mb-6">
-                {plan.features.map((f, i) => (
-                  <li key={i} className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-emerald-400 mt-1" />
-                    <span>{f}</span>
-                  </li>
-                ))}
-              </ul>
-              <button
-                onClick={() =>
-                  window.open(
-                    "https://calendly.com/mustajeeb/free-strategy-call",
-                    "_blank"
-                  )
-                }
-                className={`w-full px-6 py-3 rounded-lg font-semibold transition ${
-                  plan.highlight
-                    ? "bg-emerald-500 text-black hover:bg-emerald-600"
-                    : "border border-slate-300 text-white hover:border-white"
-                }`}
-              >
-                Book This Plan
-              </button>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
+              Book This Plan
+            </button>
+          </motion.div>
+        ))}
+      </div>
     </section>
   );
 };

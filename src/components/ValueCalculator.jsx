@@ -24,60 +24,79 @@ const ValueCalculator = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      className="bg-slate-950 text-white py-20 px-6 text-center"
+      className="bg-slate-950 py-24 px-6 text-white"
     >
-      <motion.h2 variants={fadeUp} className="text-4xl font-bold mb-6">
-        📈 Revenue Calculator
+      <motion.h2
+        variants={fadeUp}
+        className="text-4xl font-bold text-center mb-4"
+      >
+        📈 Value & Revenue Calculator
       </motion.h2>
-
       <motion.p
         variants={fadeUp}
         custom={1}
-        className="text-slate-400 mb-10 max-w-2xl mx-auto"
+        className="text-slate-400 text-center mb-12 max-w-xl mx-auto"
       >
-        Estimate how much more you could earn with better lead conversion and AI automations.
+        Discover how many more leads you can capture with AI-powered systems and what they could be worth in revenue.
       </motion.p>
 
       <motion.div
         variants={fadeUp}
         custom={2}
-        className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto text-left"
+        className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto text-left"
       >
         <div>
-          <label className="block mb-1 text-sm text-slate-300">Monthly Visitors</label>
+          <label className="block mb-1 text-sm font-medium text-slate-300">
+            🧍 Monthly Visitors
+          </label>
           <input
             type="number"
-            className="w-full p-3 rounded bg-slate-800 text-white border border-slate-700"
             value={visitors}
             onChange={(e) => setVisitors(Number(e.target.value))}
+            className="w-full p-4 rounded-xl bg-slate-900 text-white border border-slate-800 focus:ring-2 focus:ring-emerald-400 outline-none transition"
           />
         </div>
+
         <div>
-          <label className="block mb-1 text-sm text-slate-300">Conversion Rate (%)</label>
+          <label className="block mb-1 text-sm font-medium text-slate-300">
+            📊 Conversion Rate (%)
+          </label>
           <input
             type="number"
-            className="w-full p-3 rounded bg-slate-800 text-white border border-slate-700"
             value={conversion}
             onChange={(e) => setConversion(Number(e.target.value))}
+            className="w-full p-4 rounded-xl bg-slate-900 text-white border border-slate-800 focus:ring-2 focus:ring-emerald-400 outline-none transition"
           />
         </div>
+
         <div>
-          <label className="block mb-1 text-sm text-slate-300">Avg Commission ($)</label>
+          <label className="block mb-1 text-sm font-medium text-slate-300">
+            💼 Avg Commission per Sale ($)
+          </label>
           <input
             type="number"
-            className="w-full p-3 rounded bg-slate-800 text-white border border-slate-700"
             value={commission}
             onChange={(e) => setCommission(Number(e.target.value))}
+            className="w-full p-4 rounded-xl bg-slate-900 text-white border border-slate-800 focus:ring-2 focus:ring-emerald-400 outline-none transition"
           />
         </div>
       </motion.div>
 
-      <motion.div variants={fadeUp} custom={3} className="mt-10 text-center">
-        <p className="text-xl text-emerald-400 font-semibold">
-          🧲 You could generate <strong>{leads}</strong> new leads/month
+      <motion.div
+        variants={fadeUp}
+        custom={3}
+        className="mt-14 max-w-xl mx-auto bg-slate-900 p-8 rounded-2xl border border-emerald-500/20 shadow-lg text-center"
+      >
+        <p className="text-lg text-slate-300 mb-2">
+          With your current traffic and conversion...
         </p>
-        <p className="text-2xl font-bold mt-2 text-white">
-          💰 ${revenue.toLocaleString()} monthly revenue potential
+        <p className="text-xl md:text-2xl font-semibold text-emerald-400">
+          🧲 Estimated Leads per Month:{" "}
+          <span className="font-bold text-white">{leads}</span>
+        </p>
+        <p className="text-2xl md:text-3xl font-bold text-white mt-2">
+          💰 Potential Revenue:{" "}
+          <span className="text-emerald-400">${revenue.toLocaleString()}</span>
         </p>
       </motion.div>
     </motion.section>

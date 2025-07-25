@@ -1,21 +1,41 @@
 import { motion } from "framer-motion";
+import { ShieldCheck } from "lucide-react";
 
 const GuaranteeBadge = () => (
-  <motion.div
-    initial={{ scale: 0.8, opacity: 0 }}
-    whileInView={{ scale: 1, opacity: 1 }}
+  <motion.section
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
     viewport={{ once: true }}
-    transition={{ duration: 0.6, ease: "easeOut" }}
-    className="relative mx-auto mt-10 w-fit"
+    className="py-20 px-6 bg-gradient-to-b from-black via-zinc-900 to-black"
   >
-    {/* Glowing ring */}
-    <div className="absolute inset-0 rounded-full blur-lg bg-emerald-400 opacity-20 animate-pulse z-0" />
+    <div className="max-w-2xl mx-auto text-center">
+      <motion.div
+        initial={{ scale: 0.9, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="relative bg-gradient-to-br from-black to-slate-900 border border-emerald-500 rounded-xl shadow-xl p-8"
+      >
+        {/* Glowing ring behind the badge */}
+        <div className="absolute -inset-1.5 bg-emerald-500 blur-lg opacity-20 rounded-xl animate-pulse" />
 
-    {/* Badge */}
-    <div className="relative z-10 px-6 py-4 bg-black border border-emerald-500 rounded-full text-emerald-400 font-bold shadow-lg text-center text-sm md:text-base">
-      ✅ 7-Day Launch Guarantee — Go Live Fast or It’s Free!
+        {/* Icon and Badge Content */}
+        <div className="relative z-10 flex flex-col items-center space-y-4">
+          <ShieldCheck className="text-emerald-400 w-10 h-10" />
+          <h3 className="text-2xl font-bold text-emerald-400">
+            7-Day Launch Guarantee
+          </h3>
+          <p className="text-slate-300 max-w-md">
+            We promise to launch your luxury real estate site within 7 days — or you don’t pay. No delays. No excuses.
+          </p>
+          <p className="text-sm text-slate-500 mt-2">
+            *Excludes client-side delays in content, approvals, or hosting.
+          </p>
+        </div>
+      </motion.div>
     </div>
-  </motion.div>
+  </motion.section>
 );
 
 export default GuaranteeBadge;
