@@ -62,7 +62,7 @@ function App() {
 
       <ShareCTA />
       <ContactForm />
-      <StickyCTA />
+      {/* s<StickyCTA /> */}
       <Footer />
 
     </div>
