@@ -1,5 +1,5 @@
 export const getAllBlogs = async () => {
-  const slugs = ["ai-for-realtors", "why-choose-a-real-estate-website", "seo-for-realtors", "ai-tools-for-real-estate" , "real-estate-website-must-haves", "how-to-market-yourself-as-realtor"];
+  const slugs = ["ai-for-realtors", "why-choose-a-real-estate-website", "seo-for-realtors", "ai-tools-for-real-estate" , "real-estate-website-must-haves", "how-to-market-yourself-as-realtor", "seo-guide", "homepage-tips"];
 
   const posts = await Promise.all(
     slugs.map(async (slug) => {
